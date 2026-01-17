@@ -1,2 +1,3 @@
-# UniStamps
-A different type of reward system.
+# UniStamps — UniCookies
+
+Market-only loyalty experience.
