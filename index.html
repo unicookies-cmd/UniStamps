@@ -5,97 +5,113 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>UniStamps — UniCookies</title>
   <meta name="description" content="Market-only loyalty stamps — calm, intentional, human-verified." />
-  <link rel="stylesheet" href="./styles.css?v=1" />
+  <link rel="stylesheet" href="./styles.css?v=2" />
 </head>
+
 <body>
   <main class="wrap">
-    <section class="card">
-      <img class="logo" src="./assets/logo.png" alt="UniCookies logo" />
+    <section class="card" role="application" aria-label="UniStamps loyalty">
+      <header class="header">
+        <img class="logo" src="./assets/logo.png" alt="UniCookies" />
+        <div class="eyebrow" id="eyebrowLine">UNISTAMPS</div>
+        <h1 class="headline" id="headlineText">A Moment, Just for You</h1>
+        <p class="subhead" id="subheadText">Market-only. No account. No pressure.</p>
+      </header>
 
+      <!-- SCREEN: Welcome -->
       <section id="screenWelcome" class="screen">
-        <h1 class="title">Collect your UniStamp</h1>
-        <p class="sub">Pause for a moment. You’ve earned something sweet.</p>
-        <label class="field">
-          <span>Phone number</span>
-          <input id="phoneInput" inputmode="tel" autocomplete="tel" placeholder="(555) 123-4567" />
-        </label>
-        <button id="continueBtn" class="primary">Continue</button>
-        <p class="micro">No login. No account. Market-only moment.</p>
+        <div class="panel">
+          <label class="field" for="phoneInput">
+            <span class="label">Phone number</span>
+            <input id="phoneInput" inputmode="tel" autocomplete="tel" placeholder="(555) 123-4567" />
+          </label>
+
+          <button id="continueBtn" class="btn btnPrimary">Save my stamp</button>
+
+          <p class="micro">
+            This stays on <strong>your device</strong>. A staff member confirms your rewards in person.
+          </p>
+        </div>
       </section>
 
+      <!-- SCREEN: Wallet -->
       <section id="screenWallet" class="screen hidden">
-        <div class="topline">
-          <div class="titleSm">UniStamps</div>
-          <button id="changePhoneBtn" class="ghost">Change</button>
-        </div>
-        <div id="phoneBadge" class="badge"></div>
-        <p class="sub2" id="nextPerkLine">Next perk at 3 stamps.</p>
+        <div class="panel">
+          <div class="topline">
+            <div class="badge" id="phoneBadge"></div>
+            <button id="changePhoneBtn" class="btn btnGhost" type="button">Change</button>
+          </div>
 
-        <div class="grid">
-          <div class="stamp" data-i="1"></div>
-          <div class="stamp" data-i="2"></div>
-          <div class="stamp" data-i="3"></div>
-          <div class="stamp" data-i="4"></div>
-          <div class="stamp" data-i="5"></div>
-          <div class="stamp" data-i="6"></div>
-          <div class="stamp" data-i="7"></div>
-          <div class="stamp" data-i="8"></div>
-          <div class="stamp" data-i="9"></div>
-        </div>
+          <p class="walletLine" id="walletLine">Your UniStamps</p>
 
-        <div class="progressRow">
-          <div class="progressText" id="progressText">0 / 10</div>
-          <div class="muted" id="dailyLockText"></div>
-        </div>
+          <div class="stampGrid" id="stampGrid" aria-label="Stamp progress">
+            <!-- 9 stamps rendered by JS -->
+          </div>
 
-        <button id="stampBtn" class="primary">Get today’s stamp</button>
+          <div class="progressRow">
+            <div class="progressText" id="progressText">0 / 10</div>
+            <div class="lockText" id="dailyLockText"></div>
+          </div>
 
-        <div class="tip">
-          Tip: Share your moments and tag <strong>@eatunicookies</strong>.
-        </div>
+          <button id="stampBtn" class="btn btnPrimary">Get today’s stamp</button>
 
-        <div class="actions">
-          <button id="shareBtn" class="secondary">Share</button>
-          <button id="resetBtn" class="secondary">Reset (This Device)</button>
+          <!-- Divider / Tip -->
+          <div class="divider"></div>
+          <div class="tip">
+            Tip: Share your moment and tag <strong>@eatunicookies</strong>.
+          </div>
+
+          <div class="actions">
+            <button id="shareBtn" class="btn btnSecondary">Share</button>
+            <button id="resetBtn" class="btn btnSecondary btnDanger">Reset (This Device)</button>
+          </div>
         </div>
       </section>
 
+      <!-- SCREEN: Claim -->
       <section id="screenClaim" class="screen hidden">
-        <div class="titleSm" id="claimTitle">Unlocked</div>
-        <div class="claimBox">
-          <div class="claimHeadline" id="claimHeadline">UniCircle unlocked</div>
-          <p class="claimBody" id="claimBody"></p>
-          <div class="claimMeta" id="claimMeta"></div>
+        <div class="panel">
+          <div class="claimTop">
+            <div class="claimBadge">UNLOCKED</div>
+            <h2 class="claimTitle" id="claimHeadline">UniCircle unlocked</h2>
+            <p class="claimBody" id="claimBody"></p>
+            <p class="claimMeta" id="claimMeta"></p>
+          </div>
 
-          <button id="verifyBtn" class="primary">Verify with staff</button>
+          <button id="verifyBtn" class="btn btnPrimary">Show staff to claim</button>
 
           <div id="claimButtons" class="claimButtons hidden">
-            <button id="claimCtaA" class="primary">I want UniCircle</button>
-            <button id="claimCtaB" class="secondary">Just today’s stamp</button>
+            <button id="claimCtaA" class="btn btnPrimary">I want UniCircle</button>
+            <button id="claimCtaB" class="btn btnSecondary">Just today’s stamp</button>
           </div>
 
-          <button id="backToWalletBtn" class="ghostWide">Back to wallet</button>
+          <button id="backToWalletBtn" class="btn btnGhostWide" type="button">Back to wallet</button>
         </div>
       </section>
 
-      <div id="modal" class="modal hidden">
-        <div class="modalCard">
-          <div class="modalTitle">Staff Verification</div>
-          <p class="modalSub">Team member enters PIN.</p>
-          <input id="pinInput" class="pin" inputmode="numeric" placeholder="••••" />
+      <!-- Staff PIN Modal -->
+      <div id="modal" class="modal hidden" aria-hidden="true">
+        <div class="modalCard" role="dialog" aria-modal="true" aria-label="Staff verification">
+          <div class="modalTitle">Staff Confirmation</div>
+          <div class="modalSub">This confirms today’s moment.</div>
+
+          <input id="pinInput" class="pin" inputmode="numeric" autocomplete="one-time-code" placeholder="••••" />
+
           <div class="modalRow">
-            <button id="pinCancel" class="secondary">Cancel</button>
-            <button id="pinConfirm" class="primary">Confirm</button>
+            <button id="pinCancel" class="btn btnSecondary" type="button">Cancel</button>
+            <button id="pinConfirm" class="btn btnPrimary" type="button">Confirm</button>
           </div>
+
           <div id="pinError" class="error hidden">Incorrect PIN.</div>
         </div>
       </div>
 
-      <div class="toast" id="toast">Saved</div>
+      <!-- Toast -->
+      <div class="toast" id="toast" aria-live="polite">Saved</div>
     </section>
   </main>
 
   <script src="./config.js"></script>
-  <script src="./app.js"></script>
+  <script src="./app.js?v=2"></script>
 </body>
 </html>
