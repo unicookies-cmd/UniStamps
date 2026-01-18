@@ -1,2 +1,427 @@
-/* FULL production styles.css — UniStamps */
-<styles omitted here for brevity in tool>
+/* UniStamps — UI aligned to "A Sweet Message" (card-centered, calm hierarchy) */
+
+:root{
+  --bg: #ffffff;
+  --card: #ffffff;
+  --ink: #101010;
+  --muted: rgba(16,16,16,.62);
+  --hair: rgba(16,16,16,.12);
+
+  --shadow: 0 12px 45px rgba(0,0,0,.08);
+  --radius: 22px;
+
+  --btn: rgba(16,16,16,.06);
+  --btnHover: rgba(16,16,16,.09);
+  --btnText: #101010;
+
+  --primaryBg: #101010;
+  --primaryText: #ffffff;
+
+  --dangerBg: rgba(220,40,40,.10);
+  --dangerText: #a51616;
+
+  --stampFill: rgba(16,16,16,.12);
+  --stampOn: #101010;
+
+  --focus: rgba(42,172,226,.35); /* UniCookies blue vibe */
+}
+
+*{ box-sizing: border-box; }
+html, body { height: 100%; }
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.wrap{
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 28px 16px 40px;
+}
+
+.card{
+  width: min(760px, 100%);
+  background: var(--card);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px 18px 18px;
+}
+
+.header{
+  display: grid;
+  place-items: center;
+  gap: 10px;
+  padding: 6px 6px 14px;
+  text-align: center;
+}
+
+.logo{
+  max-width: 240px;
+  width: 56%;
+  height: auto;
+  display: block;
+  margin: 2px auto 0;
+}
+
+.eyebrow{
+  letter-spacing: .18em;
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(16,16,16,.50);
+}
+
+.headline{
+  margin: 0;
+  font-size: clamp(22px, 3.6vw, 34px);
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.subhead{
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.screen{ padding: 10px 6px 6px; }
+.hidden{ display: none !important; }
+
+.panel{
+  display: grid;
+  gap: 14px;
+  align-items: center;
+  justify-items: center;
+  padding: 10px 6px 6px;
+}
+
+/* Field */
+.field{
+  width: min(520px, 100%);
+  display: grid;
+  gap: 8px;
+  text-align: left;
+}
+.label{
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(16,16,16,.52);
+  font-weight: 700;
+}
+input{
+  width: 100%;
+  font-size: 16px;
+  padding: 14px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,.12);
+  outline: none;
+  transition: box-shadow .15s ease, border-color .15s ease;
+}
+input:focus{
+  border-color: rgba(42,172,226,.55);
+  box-shadow: 0 0 0 6px var(--focus);
+}
+
+/* Buttons */
+.btn{
+  border: 1px solid rgba(0,0,0,.08);
+  background: var(--btn);
+  color: var(--btnText);
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .06s ease, background .15s ease, border-color .15s ease;
+}
+.btn:hover{ background: var(--btnHover); }
+.btn:active{ transform: translateY(1px); }
+.btn:disabled{
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+.btnPrimary{
+  width: min(520px, 100%);
+  background: var(--primaryBg);
+  color: var(--primaryText);
+  border-color: rgba(0,0,0,.1);
+}
+.btnPrimary:hover{ background: #0b0b0b; }
+
+.btnSecondary{
+  min-width: 160px;
+}
+
+.btnGhost{
+  background: transparent;
+  border-color: rgba(0,0,0,.10);
+  padding: 10px 12px;
+}
+.btnGhost:hover{ background: rgba(0,0,0,.04); }
+
+.btnGhostWide{
+  width: min(520px, 100%);
+  background: transparent;
+  border-color: rgba(0,0,0,.10);
+  padding: 12px 14px;
+}
+
+.btnDanger{
+  background: var(--dangerBg);
+  color: var(--dangerText);
+  border-color: rgba(220,40,40,.20);
+}
+.btnDanger:hover{ background: rgba(220,40,40,.14); }
+
+/* Micro text */
+.micro{
+  width: min(520px, 100%);
+  margin: 0;
+  color: rgba(16,16,16,.56);
+  font-size: 12px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+/* Wallet */
+.topline{
+  width: min(520px, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.badge{
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(0,0,0,.04);
+  border: 1px solid rgba(0,0,0,.08);
+  color: rgba(16,16,16,.78);
+  font-size: 13px;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 72%;
+}
+
+.walletLine{
+  margin: 4px 0 0;
+  font-weight: 800;
+  font-size: 16px;
+  color: rgba(16,16,16,.88);
+}
+
+.stampGrid{
+  width: min(520px, 100%);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.stamp{
+  height: 56px;
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,.10);
+  background: rgba(0,0,0,.03);
+  position: relative;
+  overflow: hidden;
+}
+
+.stamp.on{
+  background: rgba(16,16,16,.10);
+  border-color: rgba(16,16,16,.18);
+}
+
+.stamp.on::after{
+  content: "✓";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--stampOn);
+}
+
+.progressRow{
+  width: min(520px, 100%);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.progressText{
+  font-size: 13px;
+  color: rgba(16,16,16,.72);
+  font-weight: 800;
+}
+
+.lockText{
+  font-size: 12px;
+  color: rgba(16,16,16,.50);
+}
+
+/* Divider + Tip */
+.divider{
+  width: min(520px, 100%);
+  height: 1px;
+  background: rgba(0,0,0,.10);
+  margin-top: 6px;
+}
+.tip{
+  width: min(520px, 100%);
+  font-size: 12px;
+  color: rgba(16,16,16,.58);
+  text-align: center;
+  line-height: 1.35;
+}
+
+/* Actions */
+.actions{
+  width: min(520px, 100%);
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Claim screen */
+.claimTop{
+  width: min(520px, 100%);
+  text-align: center;
+  display: grid;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.claimBadge{
+  display: inline-block;
+  margin: 0 auto;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(0,0,0,.04);
+  border: 1px solid rgba(0,0,0,.08);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  color: rgba(16,16,16,.62);
+}
+
+.claimTitle{
+  margin: 0;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.claimBody{
+  margin: 0;
+  color: rgba(16,16,16,.70);
+  font-size: 14px;
+  line-height: 1.45;
+  white-space: pre-line;
+}
+
+.claimMeta{
+  margin: 0;
+  color: rgba(16,16,16,.52);
+  font-size: 12px;
+  line-height: 1.35;
+  white-space: pre-line;
+}
+
+.claimButtons{
+  width: min(520px, 100%);
+  display: grid;
+  gap: 10px;
+}
+
+/* Modal */
+.modal{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.34);
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  z-index: 999;
+}
+
+.modalCard{
+  width: min(420px, 100%);
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 20px 60px rgba(0,0,0,.20);
+  padding: 16px;
+  display: grid;
+  gap: 10px;
+  text-align: center;
+}
+
+.modalTitle{
+  font-weight: 900;
+  font-size: 16px;
+}
+.modalSub{
+  font-size: 12px;
+  color: rgba(16,16,16,.60);
+  margin-top: -4px;
+}
+
+.pin{
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: .35em;
+  padding: 14px 12px;
+}
+
+.modalRow{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.error{
+  font-size: 12px;
+  color: #a51616;
+  font-weight: 800;
+}
+
+/* Toast */
+.toast{
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  background: rgba(16,16,16,.92);
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease;
+  z-index: 1000;
+}
+.toast.show{
+  opacity: 1;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+/* Small screens */
+@media (max-width: 420px){
+  .badge{ max-width: 62%; }
+  .stamp{ height: 52px; }
+}
