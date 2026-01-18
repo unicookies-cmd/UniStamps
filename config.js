@@ -1,7 +1,7 @@
 // config.js — UniStamps (local-only, no backend)
 window.UNISTAMPS_CONFIG = {
   brandHandle: "@eatunicookies",
-  staffPin: "4821", // CHANGE THIS
+  staffPin: "1412", // CHANGE THIS
   maxStamps: 10,
   milestones: {
     3: {
